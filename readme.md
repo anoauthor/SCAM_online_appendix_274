@@ -6,6 +6,6 @@ Applications" submitted to the Research Track of SCAM2022
 ## CodeQL queries
 [Queries](codeQL_queries/readme.md)
 ## Retrieved instances
-[Resuls](detection/readme.md)
+[Results](detection/readme.md)
 ## Survey data
 [Answers](survey/Analysis.ipynb)
