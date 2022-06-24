@@ -1,0 +1,705 @@
+orionhealth__XBDD has 1 results
+	 - (originalAutomatedStatus)
+	   at backend/src/main/java/io/github/orionhealth/xbdd/model/xbdd/XbddFeatureSummary.java:28:17
+
+
+ant-media__Ant-Media-Server-Common has 43 results
+	 - (playJwtControlEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:1197:18
+
+
+	 - (publishJwtControlEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:1191:18
+
+
+	 - (dataChannelWebHookURL)
+	   at src/main/java/io/antmedia/AppSettings.java:1071:17
+
+
+	 - (rtmpIngestBufferTimeMs)
+	   at src/main/java/io/antmedia/AppSettings.java:1064:15
+
+
+	 - (dataChannelPlayerDistribution)
+	   at src/main/java/io/antmedia/AppSettings.java:1057:17
+
+
+	 - (allowedPublisherCIDRList)
+	   at src/main/java/io/antmedia/AppSettings.java:1019:24
+
+
+	 - (rtspPullTransportType)
+	   at src/main/java/io/antmedia/AppSettings.java:997:17
+
+
+	 - (disableIPv6Candidates)
+	   at src/main/java/io/antmedia/AppSettings.java:990:18
+
+
+	 - (httpForwardingBaseURL)
+	   at src/main/java/io/antmedia/AppSettings.java:978:17
+
+
+	 - (httpForwardingExtension)
+	   at src/main/java/io/antmedia/AppSettings.java:972:17
+
+
+	 - (defaultDecodersEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:960:18
+
+
+	 - (webRTCClientStartTimeoutMs)
+	   at src/main/java/io/antmedia/AppSettings.java:947:14
+
+
+	 - (replaceCandidateAddrWithServerAddr)
+	   at src/main/java/io/antmedia/AppSettings.java:926:18
+
+
+	 - (rttMeasurementDiffThresholdForSwitchback)
+	   at src/main/java/io/antmedia/AppSettings.java:919:14
+
+
+	 - (packetLossDiffThresholdForSwitchback)
+	   at src/main/java/io/antmedia/AppSettings.java:911:14
+
+
+	 - (excessiveBandwidthAlgorithmEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:904:18
+
+
+	 - (excessiveBandwithTryCountBeforeSwitchback)
+	   at src/main/java/io/antmedia/AppSettings.java:898:14
+
+
+	 - (excessiveBandwidthCallThreshold)
+	   at src/main/java/io/antmedia/AppSettings.java:894:14
+
+
+	 - (excessiveBandwidthValue)
+	   at src/main/java/io/antmedia/AppSettings.java:888:14
+
+
+	 - (encoderSelectionPreference)
+	   at src/main/java/io/antmedia/AppSettings.java:850:17
+
+
+	 - (writeStatsToDatastore)
+	   at src/main/java/io/antmedia/AppSettings.java:837:18
+
+
+	 - (vp8EncoderThreadCount)
+	   at src/main/java/io/antmedia/AppSettings.java:817:14
+
+
+	 - (collectSocialMediaActivity)
+	   at src/main/java/io/antmedia/AppSettings.java:731:18
+
+
+	 - (webRTCTcpCandidatesEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:708:18
+
+
+	 - (streamFetcherBufferTime)
+	   at src/main/java/io/antmedia/AppSettings.java:640:14
+
+
+	 - (startStreamFetcherAutomatically)
+	   at src/main/java/io/antmedia/AppSettings.java:629:18
+
+
+	 - (restartStreamFetcherPeriod)
+	   at src/main/java/io/antmedia/AppSettings.java:623:14
+
+
+	 - (objectDetectionEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:606:18
+
+
+	 - (periscopeClientSecret)
+	   at src/main/java/io/antmedia/AppSettings.java:546:18
+
+
+	 - (timeTokenSubscriberOnly)
+	   at src/main/java/io/antmedia/AppSettings.java:505:18
+
+
+	 - (playTokenControlEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:499:18
+
+
+	 - (publishTokenControlEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:490:18
+
+
+	 - (acceptOnlyRoomsInDataStore)
+	   at src/main/java/io/antmedia/AppSettings.java:481:18
+
+
+	 - (acceptOnlyStreamsInDataStore)
+	   at src/main/java/io/antmedia/AppSettings.java:475:18
+
+
+	 - (hashControlPlayEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:458:18
+
+
+	 - (hashControlPublishEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:449:18
+
+
+	 - (deleteDASHFilesOnEnded)
+	   at src/main/java/io/antmedia/AppSettings.java:433:18
+
+
+	 - (deleteHLSFilesOnEnded)
+	   at src/main/java/io/antmedia/AppSettings.java:426:18
+
+
+	 - (useOriginalWebRTCEnabled)
+	   at src/main/java/io/antmedia/AppSettings.java:417:18
+
+
+	 - (useTimelineDashMuxing)
+	   at src/main/java/io/antmedia/AppSettings.java:400:18
+
+
+	 - (encoderSettingsString)
+	   at src/main/java/io/antmedia/AppSettings.java:327:17
+
+
+	 - (addDateTimeToMp4FileName)
+	   at src/main/java/io/antmedia/AppSettings.java:309:18
+
+
+	 - (authTimeInMilliseconds)
+	   at src/main/java/io/antmedia/datastore/db/types/SocialEndpointCredentials.java:59:17
+
+
+Scout24__yum-repo-server has 1 results
+	 - (lastMetadataGeneration)
+	   at src/main/java/de/is24/infrastructure/gridfs/http/domain/RepoEntry.java:34:16
+
+
+smartcommunitylab__game-engine.core has 1 results
+	 - (challengePointConcept)
+	   at src/main/java/eu/trentorise/game/model/GroupChallenge.java:46:29
+
+
+Apereo-Learning-Analytics-Initiative__OpenLRW has 1 results
+	 - (academicSessionSourcedId)
+	   at src/main/java/org/apereo/openlrw/oneroster/service/repository/MongoAcademicSession.java:25:18
+
+
+AntonHellbe__ServerProject has 1 results
+	 - (isCredentialsNonExpired)
+	   at src/main/java/org/demo/model/security/Account.java:61:18
+
+
+Alirezazabetan__JobSeeker has 1 results
+	 - (certification_authority)
+	   at src/main/java/ir/zabetan/job/domain/Certification.java:25:5
+
+
+Hygieia__ExecDashboard has 66 results
+	 - (amiBaseAMICreationDate)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CloudCustodianAMI.java:22:17
+
+
+	 - (ebsAttachedInstanceName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CloudCustodianEBS.java:22:17
+
+
+	 - (ebsAttachedInstanceId)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CloudCustodianEBS.java:21:17
+
+
+	 - (readReplicaDbInstanceIdentifiers)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CloudCustodianRdsAll.java:31:17
+
+
+	 - (awsCloudFormationStackId)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CloudCustodianRdsAll.java:28:17
+
+
+	 - (collectionUpdatedTime)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/CollectorUpdatedDetails.java:16:15
+
+
+	 - (codeAnalysisComponents)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ConfigurationMetrics.java:41:14
+
+
+	 - (blackDuckMediumOverdue)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExecutiveSecurityData.java:46:14
+
+
+	 - (blackDuckCriticalOverdue)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExecutiveSecurityData.java:45:14
+
+
+	 - (blackDuckBlockerValue)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExecutiveSecurityData.java:42:14
+
+
+	 - (blackDuckCriticalValue)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExecutiveSecurityData.java:40:14
+
+
+	 - (vulnerCriticalOverdue)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExecutiveSecurityData.java:28:14
+
+
+	 - (connectionCredentials)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExternalSystemMonitor.java:21:30
+
+
+	 - (impaactedExecutiveCard)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ExternalSystemMonitor.java:16:36
+
+
+	 - (applicationEnvironmentDetected)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/FeatureUserStory.java:123:17
+
+
+	 - (deploymentTargetEnvironment)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/FeatureUserStory.java:112:17
+
+
+	 - (environmentLocationITT)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/FeatureUserStory.java:110:17
+
+
+	 - (artifactConfigAppVersion)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Instance.java:31:17
+
+
+	 - (artifactInstanceVersion)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Instance.java:30:17
+
+
+	 - (artifactCollectorVersion)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Instance.java:29:17
+
+
+	 - (lastDeployedTimeStamp)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Instance.java:27:15
+
+
+	 - (buildQueueDurationTime)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/JenkinsPipelineMetrics.java:18:15
+
+
+	 - (buildPauseDurationTime)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/JenkinsPipelineMetrics.java:17:15
+
+
+	 - (nonProdDurationTimeStamp)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/JenkinsUnlimitedData.java:28:17
+
+
+	 - (productMetricDetailList)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/LobMetricDetail.java:14:39
+
+
+	 - (productMetricDetailList)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/PortfolioMetricDetail.java:14:39
+
+
+	 - (aysResolutionDescription)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ServiceNowIssues.java:28:17
+
+
+	 - (aysPriorityDescription)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/ServiceNowIssues.java:22:17
+
+
+	 - (storyPointsSayDoRatio)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/SprintMetrics.java:20:14
+
+
+	 - (vastTierSevenContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:48:17
+
+
+	 - (vastTierSevenContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:47:17
+
+
+	 - (vastTierSevenContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:46:17
+
+
+	 - (vastTierSevenContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:45:17
+
+
+	 - (vastTierSixContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:44:17
+
+
+	 - (vastTierSixContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:43:17
+
+
+	 - (vastTierSixContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:42:17
+
+
+	 - (vastTierSixContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:41:17
+
+
+	 - (vastTierFiveContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:40:17
+
+
+	 - (vastTierFiveContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:39:17
+
+
+	 - (vastTierFiveContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:38:17
+
+
+	 - (vastTierFiveContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:37:17
+
+
+	 - (vastTierFourContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:36:17
+
+
+	 - (vastTierFourContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:35:17
+
+
+	 - (vastTierFourContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:34:17
+
+
+	 - (vastTierFourContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:33:17
+
+
+	 - (vastTierThreeContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:32:17
+
+
+	 - (vastTierThreeContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:31:17
+
+
+	 - (vastTierThreeContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:30:17
+
+
+	 - (vastTierThreeContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:29:17
+
+
+	 - (vastTierTwoContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:28:17
+
+
+	 - (vastTierTwoContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:27:17
+
+
+	 - (vastTierTwoContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:26:17
+
+
+	 - (vastTierTwoContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:25:17
+
+
+	 - (vastTierOneContactTitle)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:24:17
+
+
+	 - (vastTierOneContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:23:17
+
+
+	 - (vastTierOneContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:22:17
+
+
+	 - (vastTierOneContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:21:17
+
+
+	 - (vastCustodianContactEid)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:20:17
+
+
+	 - (vastCustodianContactEmail)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:19:17
+
+
+	 - (vastCustodianContactName)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:18:17
+
+
+	 - (vastAvailabilityStatus)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/Vast.java:14:17
+
+
+	 - (webScanVulnerabilities)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/VonkinatorDataSet.java:30:15
+
+
+	 - (portScanVulnerabilities)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/VonkinatorDataSet.java:29:15
+
+
+	 - (fortifyVulnerabilities)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/VonkinatorDataSet.java:28:15
+
+
+	 - (meanTimeToResolveEvents)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/VonkinatorDataSet.java:22:17
+
+
+	 - (meanTimeToResolveOutages)
+	   at exec-core/src/main/java/com/capitalone/dashboard/exec/model/VonkinatorDataSet.java:21:17
+
+
+s0539248__zhangbackend has 1 results
+	 - (weightedDayTimeWishes)
+	   at src/de/teamzhang/model/Schedule.java:7:16
+
+
+devgateway__ocvn has 1 results
+	 - (additionalIdentifiers)
+	   at persistence-mongodb/src/main/java/org/devgateway/ocds/persistence/mongo/Organization.java:64:29
+
+
+shenan4321__BIMplatform has 2 results
+	 - (useForSerializationFeatures)
+	   at src/cn/dlb/bim/ifc/stream/VirtualObject.java:43:48
+
+
+	 - (useForSerializationFeatures)
+	   at src/cn/dlb/bim/ifc/stream/WrappedVirtualObject.java:30:48
+
+
+GrowersNation__GrowersNationSite has 2 results
+	 - (openIDDiscoveryInformationMemento)
+	   at src/main/java/org/growersnation/site/model/security/User.java:46:39
+
+
+	 - (topsoilNutrientsFields)
+	   at src/main/java/org/growersnation/site/model/soil/SoilData.java:33:40
+
+
+bq__corbel has 1 results
+	 - (clientSideAuthentication)
+	   at iam/src/main/java/com/bq/corbel/iam/model/Client.java:23:21
+
+
+europeana__metis-framework has 9 results
+	 - (enrichmentEntity.about)
+	   at metis-enrichment/metis-enrichment-common/src/main/java/eu/europeana/enrichment/internal/model/EnrichmentTerm.java:27:22
+
+
+	 - (enrichmentEntity.owlSameAs)
+	   at metis-enrichment/metis-enrichment-common/src/main/java/eu/europeana/enrichment/internal/model/EnrichmentTerm.java:28:22
+
+
+	 - (labelInfos.lowerCaseLabel)
+	   at metis-enrichment/metis-enrichment-common/src/main/java/eu/europeana/enrichment/internal/model/EnrichmentTerm.java:29:22
+
+
+	 - (enrichmentEntity.about)
+	   at metis-enrichment/metis-enrichment-common/src/main/java/eu/europeana/enrichment/internal/model/EnrichmentTerm.java:32:22
+
+
+	 - (enrichmentEntity.owlSameAs)
+	   at metis-enrichment/metis-enrichment-common/src/main/java/eu/europeana/enrichment/internal/model/EnrichmentTerm.java:33:22
+
+
+	 - (metisPlugins.startedDate)
+	   at metis-core/metis-core-common/src/main/java/eu/europeana/metis/core/workflow/WorkflowExecution.java:45:22
+
+
+	 - (metisPlugins.updatedDate)
+	   at metis-core/metis-core-common/src/main/java/eu/europeana/metis/core/workflow/WorkflowExecution.java:46:22
+
+
+	 - (metisPlugins.finishedDate)
+	   at metis-core/metis-core-common/src/main/java/eu/europeana/metis/core/workflow/WorkflowExecution.java:47:22
+
+
+	 - (datasetIdsToRedirectFrom)
+	   at metis-core/metis-core-common/src/main/java/eu/europeana/metis/core/dataset/Dataset.java:69:24
+
+
+devgateway__oc-explorer has 1 results
+	 - (additionalIdentifiers)
+	   at persistence-mongodb/src/main/java/org/devgateway/ocds/persistence/mongo/Organization.java:90:29
+
+
+jrossignolaccenture__sejour has 2 results
+	 - (tax_situation_search_authorized)
+	   at src/main/java/fr/minint/sief/domain/Project.java:66:5
+
+
+	 - (resources_search_authorized)
+	   at src/main/java/fr/minint/sief/domain/Project.java:63:5
+
+
+altitdb__backend has 2 results
+	 - (valueIntermediationRate)
+	   at src/main/java/br/com/taxidobarba/domain/CreditCardPayment.java:34:24
+
+
+	 - (priceIntermediationRate)
+	   at src/main/java/br/com/taxidobarba/domain/CreditCardPayment.java:33:24
+
+
+as-ideas__crowdsource has 1 results
+	 - (terminationPostProcessingDone)
+	   at crowdsource-core/src/main/java/de/asideas/crowdsource/domain/model/prototypecampaign/FinancingRoundEntity.java:56:21
+
+
+dads-software-brotherhood__smartcity-back has 1 results
+	 - (publicTransportFuelType)
+	   at src/main/java/mx/infotec/smartcity/backend/model/transport/PublicTransport.java:30:37
+
+
+spring2go__piggymetrics has 1 results
+	 - (scheduledNotifications)
+	   at notification-service/src/main/java/io/spring2go/piggymetrics/notification/domain/Recipient.java:22:54
+
+
+blueperf__acmeair-monolithic-java has 1 results
+	 - (scheduledDepartureTime)
+	   at src/main/java/com/acmeair/mongo/services/FlightServiceImpl.java:174:17
+
+
+WillemJiang__acmeair has 1 results
+	 - (scheduledDepartureTime)
+	   at acmeair-services-morphia/src/main/java/com/acmeair/morphia/entities/FlightImpl.java:44:15
+
+
+soleaf__ErRabbit has 1 results
+	 - (collectionOnlyException)
+	   at src/main/java/org/mintcode/errabbit/model/Rabbit.java:34:21
+
+
+ImmobilienScout24__yum-repo-server has 1 results
+	 - (lastMetadataGeneration)
+	   at src/main/java/de/is24/infrastructure/gridfs/http/domain/RepoEntry.java:34:16
+
+
+Hygieia__hygieia-core has 23 results
+	 - (configItemBusAppOwner)
+	   at src/main/java/com/capitalone/dashboard/model/AuditResult.java:18:20
+
+
+	 - (configItemBusServOwner)
+	   at src/main/java/com/capitalone/dashboard/model/AuditResult.java:17:20
+
+
+	 - (configItemBusServName)
+	   at src/main/java/com/capitalone/dashboard/model/AuditResult.java:15:20
+
+
+	 - (performanceTestEntries)
+	   at src/main/java/com/capitalone/dashboard/model/AutoDiscovery.java:48:39
+
+
+	 - (functionalTestEntries)
+	   at src/main/java/com/capitalone/dashboard/model/AutoDiscovery.java:36:39
+
+
+	 - (developmentOwnerUserName)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:74:20
+
+
+	 - (businessOwnerUserName)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:66:20
+
+
+	 - (appServiceOwnerUserName)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:62:20
+
+
+	 - (legacyServiceManagerName)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:41:20
+
+
+	 - (configurationItemType)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:36:20
+
+
+	 - (configurationItemSubType)
+	   at src/main/java/com/capitalone/dashboard/model/Cmdb.java:32:20
+
+
+	 - (lastExecutionRecordCount)
+	   at src/main/java/com/capitalone/dashboard/model/Collector.java:30:18
+
+
+	 - (configurationItemBusAppName)
+	   at src/main/java/com/capitalone/dashboard/model/Dashboard.java:39:20
+
+
+	 - (configurationItemBusServName)
+	   at src/main/java/com/capitalone/dashboard/model/Dashboard.java:37:20
+
+
+	 - (lastPrivateRepoCollectionTimestamp)
+	   at src/main/java/com/capitalone/dashboard/model/GitHubCollector.java:8:18
+
+
+	 - (latestProcessedEventId)
+	   at src/main/java/com/capitalone/dashboard/model/GitHubCollector.java:5:18
+
+
+	 - (latestProcessedEventTimestamp)
+	   at src/main/java/com/capitalone/dashboard/model/GitHubCollector.java:4:18
+
+
+	 - (scmMergeEventRevisionNumber)
+	   at src/main/java/com/capitalone/dashboard/model/GitRequest.java:19:20
+
+
+	 - (attachedToBusinessServiceOrEnvironmentOnly)
+	   at src/main/java/com/capitalone/dashboard/model/Incident.java:35:21
+
+
+	 - (affectedBusinessServiceItemSysId)
+	   at src/main/java/com/capitalone/dashboard/model/Incident.java:34:20
+
+
+	 - (affectedBusinessServiceItemType)
+	   at src/main/java/com/capitalone/dashboard/model/Incident.java:33:20
+
+
+	 - (affectedBusinessServiceItem)
+	   at src/main/java/com/capitalone/dashboard/model/Incident.java:32:20
+
+
+	 - (primaryAssignmentGroup)
+	   at src/main/java/com/capitalone/dashboard/model/Incident.java:22:20
+
+
+8451__code-service has 1 results
+	 - (resetPasswordSentDate)
+	   at src/main/java/com/e451/rest/domains/user/User.java:48:18
+
+
+ChuangShiTeam__NowUI-Cloud has 2 results
+	 - (articleSecondaryArticleCategoryList)
+	   at module-cms/module-cms-sys/src/main/java/com/nowui/cloud/cms/article/view/ArticleView.java:244:23
+
+
+	 - (articlePrimaryArticleCategory)
+	   at module-cms/module-cms-sys/src/main/java/com/nowui/cloud/cms/article/view/ArticleView.java:237:24
+
+
+
+27/812 projects queried have results

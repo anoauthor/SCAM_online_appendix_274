@@ -1,0 +1,19 @@
+asanthamax__mongodbuserstore has 19 results
+	 - You have 3 queries that perform a lookup operation between the collections UM_ROLE and UM_USER_ROLE. Maybe you should consider storing data in the same collection to avoid performance issues.
+	   at src/main/java/org/wso2/carbon/mongodb/userstoremanager/MongoDBRealmConstants.java:63:6
+
+
+	 - You have 2 queries that perform a lookup operation between the collections UM_USER and UM_USER_ROLE. Maybe you should consider storing data in the same collection to avoid performance issues.
+	   at src/main/java/org/wso2/carbon/mongodb/userstoremanager/MongoDBRealmConstants.java:66:6
+
+
+	 - You have 7 queries that perform a lookup operation between the collections UM_USER_ATTRIBUTE and UM_USER. Maybe you should consider storing data in the same collection to avoid performance issues.
+	   at src/main/java/org/wso2/carbon/mongodb/userstoremanager/MongoDBRealmConstants.java:68:6
+
+
+	 - You have 7 queries that perform a lookup operation between the collections UM_SHARED_USER_ROLE and UM_USER. Maybe you should consider storing data in the same collection to avoid performance issues.
+	   at src/main/java/org/wso2/carbon/mongodb/userstoremanager/MongoDBRealmConstants.java:76:9
+
+
+
+1/812 projects queried have results

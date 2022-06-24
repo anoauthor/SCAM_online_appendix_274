@@ -1,0 +1,7 @@
+EUMSSI__EumssiRSSCollector has 1 results
+	 - Using UUIDs as a document ID or in an indexed field could cause performance issues and large indexes. You should consider using a more simple id or an ObjectID
+	   at src/de/l3s/eumssi/news/EUMSSI_DBQ.java:210:8
+
+
+
+1/845 projects queried have results
