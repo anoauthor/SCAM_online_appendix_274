@@ -1,0 +1,5 @@
+ - [Too long attribute name](LongElementName)
+ - [Too long document keys](LongIDTypes)
+ - [Separating data accessed together](LookupAggregations)
+ - [Database accesses spread across the system](MongoQueryDistribution)
+ - [Abusive use of indexes](TooManyIndexes)

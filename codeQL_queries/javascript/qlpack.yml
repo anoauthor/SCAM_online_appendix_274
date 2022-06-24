@@ -1,0 +1,3 @@
+name: js-pack
+version: 0.0.0
+libraryPathDependencies: codeql/javascript-all

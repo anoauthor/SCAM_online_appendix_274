@@ -1,0 +1,605 @@
+StartDate,EndDate,Status,Progress,Duration (in seconds),Finished,RecordedDate,ResponseId,DistributionChannel,UserLanguage,DemographicQ1,DemographicQ2,DemographicQ2_5_TEXT,DemographicQ3,DemographicQ4,DemographicQ5,SmellsQ1,SmellsQ2_1,SmellsQ2_2,SmellsQ2_3,SmellsQ2_4,SmellsQ2_5,SmellsQ2_6,SmellsQ2_7,SmellsQ2_8,SmellsQ2_9,SmellsQ2_10,SmellsQ2_11,SmellsQ3_1,SmellsQ3_2,SmellsQ3_3,SmellsQ3_4,SmellsQ3_5,SmellsQ3_6,SmellsQ3_7,SmellsQ3_8,SmellsQ3_9,SmellsQ3_10,SmellsQ3_11,SmellQ1,SmellQ2,SmellQ3,SmellQ4,SmellQ5,Smell2Q1,Smell2Q2,Smell2Q3,Smell2Q4,Smell2Q5,AdditionalsQ1,smell,description,example,solution,smell2,description2,example2,solution2
+2022-06-02 01:29:19,2022-06-02 06:36:15,IP Address,100,18416,True,2022-06-02 06:36:16,R_3mdEm5ogZIXM0Yi,anonymous,EN,Belgium,Technical Lead,,3-4 years,"Java,JavaScript",MongoDB Node.js Driver,Database accesses spread across the system,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Regularly - I see them as recurring problems in our projects.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Never,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Unsure - Cannot answer,Unsure - Cannot answer,"Somewhat – Yes, but I would not refactor it",Unsure - Cannot answer,Unsure - Cannot answer,No – I would not refactor it,Unsure - Cannot answer,"Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it",No – I would not refactor it,Unsure - Cannot answer,"Yes, it fixes the problem.",,,No,,"Yes, it fixes the problem.",,,No,,,Storage of empty values,"<p>One of the main advantages of MongoDB is schema flexibility. As there is no fixed structure for a document inside a collection, it is not necessary to store an empty value (null, undefined, """") if a document does not possess this attribute. It could take unnecessary disk space as there are <code>exists</code> operators checking the existence of a field
+Read more <a href=""https://stackoverflow.com/questions/12403240/storing-null-vs-not-storing-the-key-at-all-in-mongodb"" target=""_blank"">here</a>, <a href=""https://www.mongodb.com/community/forums/t/not-including-fields-vs-storing-fields-with-a-null-value/8028"" target=""_blank"">here</a> and <a href=""https://www.linkedin.com/pulse/big-data-anti-patterns-marc-kenig/"" target=""_blank"">here</a>.</p>","<pre><code>db.users.insert({""firstname"": ""John"", ""surname"": ""Doe"", ""age"": null})</code></pre>","The empty age field can be omitted:
+<pre><code>db.users.insert({""firstname"": ""John"", ""surname"": ""Doe""})</code></pre>",Inconsistent attribute order,"<p>MongoDB allows flexibility, but a consistent attribute order is necessary when searching for documents. Breaking this rule can lead to incomplete query results.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""isbn"": 9780140817744,
+      ""author"": {
+        ""surname"": ""Orwell"",
+        ""firstname"": ""George""
+      },
+      ""title"": ""1984"" 
+    },
+    {
+      ""_id"": 2,
+      ""isbn"": 9780631120001,
+      ""author"": {
+        ""firstname"": ""Ludwig"",
+        ""surname"": ""Wittgenstein""
+      },
+      ""title"": ""On certainty""
+    }
+  ]
+}</code></pre>
+
+<p>The following query would not result in any document because of the wrong field order:</p>
+<pre><code>
+db.books.find({
+  ""author"": {
+    ""firstname"": ""George"",
+    ""surname"": ""Orwell""
+  }
+})</code></pre>","The order of author's attributes should be consistent:
+
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""isbn"": 9780140817744,
+      ""author"": {
+        ""firstname"": ""George"",
+        ""surname"": ""Orwell""
+      },
+      ""title"": ""1984""
+    },
+    {
+      ""_id"": 2,
+      ""isbn"": 9780631120001,
+      ""author"": {
+        ""firstname"": ""Ludwig"",
+        ""surname"": ""Wittgenstein""
+      },
+      ""title"": ""On certainty""
+    } 
+  ]
+}</code></pre>"
+2022-05-30 02:20:55,2022-05-30 02:24:00,IP Address,73,185,False,2022-06-06 02:24:12,R_1ruh04YeOT9KEIm,anonymous,EN,France,Technical Lead,,1-2 years,"Java,JavaScript","MongoDB Java Driver,Mongoose","Separating data accessed together,Use of relational collections",Sometimes - I observed them only in few projects and commits.,Never,Never,Regularly - I see them as recurring problems in our projects.,Never,Never,Never,Never,Never,Never,Never,"Significantly – Yes, I would refactor it",No – I would not refactor it,No – I would not refactor it,Unsure - Cannot answer,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,"Yes, but it's a partial fix to the problem.",,,No,,,,,,,,Abusive use of indexes,"<p>Indexes in MongoDB are powerful and necessary to improve query performance, but their maintenance requires resources. Too many unnecessary indexes can take too much storage and increase CPU usage.
+
+Read more <a href=""https://www.mongodb.com/developer/article/schema-design-anti-pattern-unnecessary-indexes/"" target=""_blank"">here</a>.</p>","<p>Suppose a collection with several attributes where each attribute has an index; however, the collection is searched through only a few attributes.</p>",<p>Remove the indices of the attributes which are not used to search for documents in the collection.</p>,Storage of easily computed values,"<p>Storing easily calculated values unnecessarily takes storage space. Rarely they can improve performance, but their storage is unnecessary when they can be easily calculated.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""beers"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Lupulus Hibernatus"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.33,
+      ""liter_per_case"": 7.92
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Maes Pils"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.25,
+      ""liter_per_case"": 6
+    }
+  ]
+}</code></pre>","The <code>liter_per_case</code> can be deleted as the program can compute it when needed:
+<pre><code>db={
+  ""beers"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Lupulus Hibernatus"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.33,
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Maes Pils"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.25,
+    }
+  ]
+}</code></pre>"
+2022-05-30 02:31:35,2022-05-30 02:35:18,IP Address,31,223,False,2022-06-06 02:35:27,R_Y5haGsz7u0B09Bn,anonymous,EN,Belgium,Technical Lead,,<1 year,"Java,JavaScript","MongoDB Java Driver,MongoDB Node.js Driver,Spring Data MongoDB",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-05-30 02:38:58,2022-05-30 02:41:21,IP Address,38,143,False,2022-06-06 02:41:24,R_qLxwz50KMaAq5C9,anonymous,EN,Belgium,Developer,,1-2 years,Java,"MongoDB Java Driver,Spring Data MongoDB","Separating data accessed together,Use of relational collections,Relying on transactions,Inconsistent attribute order,Abusive use of indexes",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-05-30 02:45:07,2022-05-30 02:45:11,IP Address,4,3,False,2022-06-06 02:45:12,R_1MYTWfWjPr13gCc,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-05-30 02:14:41,2022-05-30 06:34:24,IP Address,27,15582,False,2022-06-06 06:34:32,R_1CIOUBEZGgKD4xC,anonymous,EN,Luxembourg,Developer,,<1 year,Java,"Mongoose,Spring Data MongoDB",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-01 14:04:44,2022-06-01 14:06:52,IP Address,4,128,False,2022-06-08 14:06:59,R_3et7QmElrw1PARh,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-10 00:38:31,2022-06-10 00:47:16,IP Address,100,524,True,2022-06-10 00:47:16,R_22odzU1jbEeQQO5,anonymous,EN,United States of America,Developer,,<1 year,"JavaScript,Python","MongoDB Node.js Driver,PyMongo","Separating data accessed together,Storage of empty values,Human readable values,Database accesses spread across the system,Storage of easily computed values",Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,Never,Regularly - I see them as recurring problems in our projects.,Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,"Significantly – Yes, I would refactor it",Unsure - Cannot answer,No – I would not refactor it,Unsure - Cannot answer,No – I would not refactor it,"Somewhat – Yes, but I would not refactor it",No – I would not refactor it,"Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it",No – I would not refactor it,Unsure - Cannot answer,"Yes, it fixes the problem.",,No,Yes,I refactor them just as done in the example.,"Yes, but it's a partial fix to the problem.","For the most part I do agree, and I think that depending on the system, it could be a solid fix. However, if crashes are grabbed constantly, like if this were for a system that details crashes for insurance companies for example, then the crashes should be included within the car object so as to create less $lookups.","As explained above, for the most part, the solution is okay. Crashes may need to be included within a car document based on the system.",Yes,"I didn't initially realize that these issues were in my projects until I saw the example, but we fix them the same way shown in the example.",No,Separating data accessed together,"<p>Normalizing and splitting data into separate tables is natural in relational databases. However, MongoDB allows embedding documents to represent 1-1 or 1-N relationships. This allows better performances by avoiding the <code>$lookup</code> operator (like a join in SQL), which is slow and resource-intensive. Read more <a href=""https://www.mongodb.com/developer/article/schema-design-anti-pattern-separating-data/"" target=""_blank"">here</a>.</p>","<p>Suppose the following collections:</p>
+<pre><code>db={
+  ""countries"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Switzerland""
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Austria""
+    },
+    {
+      ""_id"": 3,
+      ""name"": ""Belgium""
+    }
+  ],
+  ""cities"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Bruxelles"",
+      ""country"": 3
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Namur"",
+      ""country"": 3
+    },
+    {
+      ""_id"": 3,
+      ""name"": ""Zurich"",
+      ""country"": 1
+    },
+    {
+      ""_id"": 4,
+      ""name"": ""Vienna"",
+      ""country"": 2
+    }
+  ]
+}</code></pre>
+
+<p>To query the countries' cities, one needs to do a <code>$lookup</code> that would become inefficient with more data:</p>
+
+<pre><code>db.countries.aggregate([
+  {
+    ""$lookup"": {
+      ""from"": ""cities"",
+      ""localField"": ""_id"",
+      ""foreignField"": ""country"",
+      ""as"": ""country_cities""
+    }
+  }
+])</code></pre>","The cities could be stored together with the countries as follows:
+<pre><code>[
+  {
+    ""_id"": 1,
+    ""name"": ""Switzerland"",
+    ""cities"": [
+      {
+        ""_id"": 3,
+        ""name"": ""Zurich""
+      }
+    ]
+  },
+  {
+    ""_id"": 2,
+    ""name"": ""Austria""
+    ""cities"": [
+      {
+        ""_id"": 4,
+        ""name"": ""Vienna""
+      }
+    ]
+  },
+  {
+    ""_id"": 3,
+    ""name"": ""Belgium"",
+    ""cities"": [
+      {
+        ""_id"": 1,
+        ""name"": ""Bruxelles""
+      },
+      {
+        ""_id"": 2,
+        ""name"": ""Namur""
+      }
+    ]
+  }
+]</code></pre>",Use of relational collections,"<p>A <i>relational table</i> is commonly used to model N-N relationships in relational databases. A <i>relational collection</i> can be used similarly in MongoDB; however, querying such collections requires multiple <code>lookup</code> operators, which is slow and resource-intensive. 
+Read more <a href=""https://www.tutorialfor.com/blog-198278.htm"" target=""_blank"">here</a>.</p>","<p>Let's assume the following collections:</p>
+<pre><code>db={
+  ""cars"": [
+    {
+      ""_id"": 1,
+      ""brand"": ""Tesla"",
+      ""model"": ""S"",
+      ""registration"": ""2ret879""
+    },
+    {
+      ""_id"": 2,
+      ""brand"": ""BMW"",
+      ""model"": ""I3"",
+      ""registration"": ""1set194""
+    }
+  ],
+  ""crashes"": [
+    {
+      ""_id"": 1,
+      ""date"": ""11-02-2010"",
+      ""localisation"": ""50.465744021238685, 4.857857747978128""
+    },
+    {
+      ""_id"": 2,
+      ""date"": ""03-10-2000"",
+      ""localisation"": ""-13.718087457969677, 29.16153083534761""
+    }
+  ],
+  ""carcrashes"": [
+    {
+      ""_id"": 1,
+      ""crash_id"": 1,
+      ""car_id"": 2
+    },
+    {
+      ""_id"": 2,
+      ""crash_id"": 1,
+      ""car_id"": 1
+    },
+    {
+      ""_id"": 3,
+      ""crash_id"": 2,
+      ""car_id"": 2
+    },
+  ]
+}</code></pre>
+
+<p>To retrieve the crashes' information, one needs to do two <code>$lookup</code> operations as follows:</p>
+<pre><code>db.carcrashes.aggregate([
+  {
+    ""$lookup"": {
+      ""from"": ""cars"",
+      ""localField"": ""car_id"",
+      ""foreignField"": ""_id"",
+      ""as"": ""cars""
+    }
+  },
+  {
+    ""$lookup"": {
+      ""from"": ""crashes"",
+      ""localField"": ""crash_id"",
+      ""foreignField"": ""_id"",
+      ""as"": ""crashes""
+    }
+  }
+])</code></pre>","The M-N relationship can be represented to one of the collections as such:
+<pre><code>db={
+  ""cars"": [
+    {
+      ""_id"": 1,
+      ""brand"": ""Tesla"",
+      ""model"": ""S"",
+      ""registration"": ""2ret879""
+    },
+    {
+      ""_id"": 2,
+      ""brand"": ""BMW"",
+      ""model"": ""I3"",
+      ""registration"": ""1set194""
+    }
+  ],
+  ""crashes"": [
+    {
+      ""_id"": 1,
+      ""date"": ""11-02-2010"",
+      ""localisation"": ""50.465744021238685, 4.857857747978128"",
+      ""cars_implicated"": [""1"", ""2""]
+    },
+    {
+      ""_id"": 2,
+      ""date"": ""03-10-2000"",
+      ""localisation"": ""-13.718087457969677, 29.16153083534761"",
+      ""cars_implicated"": [""2""]
+    }
+  ]
+}</code></pre>"
+2022-06-07 10:02:52,2022-06-07 10:03:05,IP Address,4,13,False,2022-06-14 10:05:11,R_2taIRWSU2oJbs0q,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-07 10:40:44,2022-06-07 10:41:38,IP Address,31,53,False,2022-06-14 10:41:41,R_1eEvFjGQcLahH4O,anonymous,EN,Norway,Architect,,1-2 years,Python,PyMongo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-07 11:11:18,2022-06-07 11:11:49,IP Address,4,30,False,2022-06-14 11:11:53,R_20VDNOgAp4TwYy5,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-07 11:28:15,2022-06-07 11:29:50,IP Address,38,94,False,2022-06-14 11:29:55,R_3EMyafQOnQPtcUW,anonymous,EN,United States of America,Other,,<1 year,JavaScript,"MongoDB Node.js Driver,Mongoose",Use of relational collections,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-07 20:16:42,2022-06-07 20:40:02,IP Address,58,1400,False,2022-06-14 20:40:05,R_1hDNTCTCOFNxjG5,anonymous,EN,Australia,Developer,,<1 year,Java,Spring Data MongoDB,"Separating data accessed together,Use of relational collections,Storage of empty values,Human readable values,Inconsistent attribute order,Database accesses spread across the system,Storage of easily computed values,Abusive use of indexes",Regularly - I see them as recurring problems in our projects.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,"Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it",Unsure - Cannot answer,"Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Yes, but it's a partial fix to the problem.",,,,,,,,,,,Too long attribute name,"<p>Meaningful names are important, but too long attribute names have storage overhead in BSON.
+Read more <a href=""https://www.linkedin.com/pulse/big-data-anti-patterns-marc-kenig/"" target=""_blank"">here</a>.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""international_standard_book_number"": 9780140817744,
+      ""author"": ""George Orwell"",
+      ""title"": ""1984"",
+    },
+    {
+      ""_id"": 2,
+      ""international_standard_book_number"": 9780631120001,
+      ""author"": ""Ludwig Wittgenstein"",
+      ""title"": ""On certainty"",
+    }    
+  ]
+}</code></pre>","The <code>international_standard_book_number</code> attribute name can be shortened to <code>isbn</code>:
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""isbn"": 9780140817744,
+      ""author"": ""George Orwell"",
+      ""title"": ""1984"",
+      
+    },
+    {
+      ""_id"": 2,
+      ""isbn"": 9780631120001,
+      ""author"": ""Ludwig Wittgenstein"",
+      ""title"": ""On certainty"",
+      
+    }
+  ]
+}</code></pre>",,,,
+2022-06-08 03:42:54,2022-06-08 03:43:28,IP Address,31,33,False,2022-06-15 03:48:42,R_1DI3OTM0v65QWmq,anonymous,EN,France,Developer,,1-2 years,JavaScript,Mongoose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-16 04:02:35,2022-06-16 05:21:47,IP Address,100,4751,True,2022-06-16 05:21:47,R_10CPUTpuYynPtBB,anonymous,EN,Belgium,Other,Researcher,3-4 years,JavaScript,MongoDB Node.js Driver,"Relying on transactions,Too long attribute name,Human readable values,Storage of easily computed values",Never,Never,Sometimes - I observed them only in few projects and commits.,Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,Never,Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,"Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it",No – I would not refactor it,"Significantly – Yes, I would refactor it",No – I would not refactor it,"Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it",Unsure - Cannot answer,Unsure - Cannot answer,"Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it","Yes, it fixes the problem.",,,No,,"Yes, it fixes the problem.",,,No,,,Database accesses spread across the system,"<p>Implementing database communication with the DAO or Repository pattern is a good practice. When the implementation does not follow a proper design and database accesses are spread across the system, it can significantly degrade maintainability. A change to a collection must be propagated to the source code, which becomes even riskier when multiple files have to be modified.</p>",<p>Suppose a project with a few collections where the queries are spread across various files in the project.</p>,<p>Implement a DAO for each collection and move the queries to the DAO classes.</p>,Storage of easily computed values,"<p>Storing easily calculated values unnecessarily takes storage space. Rarely they can improve performance, but their storage is unnecessary when they can be easily calculated.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""beers"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Lupulus Hibernatus"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.33,
+      ""liter_per_case"": 7.92
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Maes Pils"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.25,
+      ""liter_per_case"": 6
+    }
+  ]
+}</code></pre>","The <code>liter_per_case</code> can be deleted as the program can compute it when needed:
+<pre><code>db={
+  ""beers"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Lupulus Hibernatus"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.33,
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Maes Pils"",
+      ""bottle_case_size"": 24,
+      ""bottle_liter_capacity"": 0.25,
+    }
+  ]
+}</code></pre>"
+2022-06-17 03:15:07,2022-06-17 04:20:30,IP Address,100,3922,True,2022-06-17 04:20:31,R_3MLIbRmdLAmXPai,anonymous,EN,Switzerland,Developer,,5-7 years,"Java,JavaScript","Mongoose,Spring Data MongoDB","Use of relational collections,Database accesses spread across the system,Storage of easily computed values",Regularly - I see them as recurring problems in our projects.,Regularly - I see them as recurring problems in our projects.,Never,Never,Never,Never,Never,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,"Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it",No – I would not refactor it,Unsure - Cannot answer,No – I would not refactor it,"Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it",Unsure - Cannot answer,"Yes, it fixes the problem.",,,No,,"Yes, it fixes the problem.",,,No,,,Database accesses spread across the system,"<p>Implementing database communication with the DAO or Repository pattern is a good practice. When the implementation does not follow a proper design and database accesses are spread across the system, it can significantly degrade maintainability. A change to a collection must be propagated to the source code, which becomes even riskier when multiple files have to be modified.</p>",<p>Suppose a project with a few collections where the queries are spread across various files in the project.</p>,<p>Implement a DAO for each collection and move the queries to the DAO classes.</p>,Inconsistent attribute order,"<p>MongoDB allows flexibility, but a consistent attribute order is necessary when searching for documents. Breaking this rule can lead to incomplete query results.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""isbn"": 9780140817744,
+      ""author"": {
+        ""surname"": ""Orwell"",
+        ""firstname"": ""George""
+      },
+      ""title"": ""1984"" 
+    },
+    {
+      ""_id"": 2,
+      ""isbn"": 9780631120001,
+      ""author"": {
+        ""firstname"": ""Ludwig"",
+        ""surname"": ""Wittgenstein""
+      },
+      ""title"": ""On certainty""
+    }
+  ]
+}</code></pre>
+
+<p>The following query would not result in any document because of the wrong field order:</p>
+<pre><code>
+db.books.find({
+  ""author"": {
+    ""firstname"": ""George"",
+    ""surname"": ""Orwell""
+  }
+})</code></pre>","The order of author's attributes should be consistent:
+
+<pre><code>db={
+  ""books"": [
+    {
+      ""_id"": 1,
+      ""isbn"": 9780140817744,
+      ""author"": {
+        ""firstname"": ""George"",
+        ""surname"": ""Orwell""
+      },
+      ""title"": ""1984""
+    },
+    {
+      ""_id"": 2,
+      ""isbn"": 9780631120001,
+      ""author"": {
+        ""firstname"": ""Ludwig"",
+        ""surname"": ""Wittgenstein""
+      },
+      ""title"": ""On certainty""
+    } 
+  ]
+}</code></pre>"
+2022-06-10 21:47:19,2022-06-10 21:52:16,IP Address,38,296,False,2022-06-17 21:52:17,R_1M0UZZP1x2NhTjc,anonymous,EN,Peru,Developer,,1-2 years,JavaScript,Mongoose,Database accesses spread across the system,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-12 16:28:53,2022-06-12 16:29:23,IP Address,31,29,False,2022-06-19 16:29:29,R_1C2x5ccGx1EVmnq,anonymous,EN,United Kingdom of Great Britain and Northern Ireland,Developer,,<1 year,JavaScript,"MongoDB Node.js Driver,Mongoose",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 06:45:31,2022-06-14 06:45:50,IP Address,4,18,False,2022-06-21 06:45:57,R_TjDgcg2XmgCdi9j,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 08:05:03,2022-06-14 08:07:40,IP Address,42,157,False,2022-06-21 08:07:43,R_2uQYsZIpd1e0na8,anonymous,EN,Germany,Developer,,3-4 years,JavaScript,MongoDB Node.js Driver,"Separating data accessed together,Use of relational collections",Never,Never,Never,Never,Never,Never,Never,Never,Never,Never,Never,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 08:08:33,2022-06-14 08:09:17,IP Address,31,44,False,2022-06-21 08:09:23,R_UckZvvOkt5VnlUB,anonymous,EN,Canada,Other,Student bootcamp ,<1 year,JavaScript,Mongoose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 08:22:39,2022-06-14 08:25:19,IP Address,50,159,False,2022-06-21 08:25:20,R_3Dc09YIjx2bjgD6,anonymous,EN,India,Developer,,1-2 years,Java,Spring Data MongoDB,Storage of easily computed values,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,"Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it",Unsure - Cannot answer,"Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it",Unsure - Cannot answer,"Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it",Unsure - Cannot answer,"Significantly – Yes, I would refactor it",,,,,,,,,,,,Too long document keys,"<p>MongoDB automatically indexes document keys (ids). Unnecessarily long ids take space in index files in addition to the space they take in each document. A typical example is the use of UUIDs. While convenient, they can generate large index files inducing performance & space issues.
+Read more <a href=""https://www.tutorialfor.com/blog-198278.htm"" target=""_blank"">here</a>.</p>","<p>Suppose the following collection:</p>
+<pre><code>db={
+  ""users"": [
+    {
+      ""_id"": ""a644be96-c4a3-11ec-9d64-0242ac120002"",
+      ""firstname"": ""John"",
+      ""surname"": ""Doe"",
+      ""job"": ""Farmer""
+    },
+    {
+      ""_id"": ""bef9d016-c4a3-11ec-9d64-0242ac120002"",
+      ""firstname"": ""Alan"",
+      ""surname"": ""Turing"",
+      ""job"": ""Postdoctoral assistant""
+    }
+  ]
+}</code></pre>
+
+<p>One can insert a new document into this collection as follows:</p>
+<pre><code>db.users.insert({""_id"": new UUID(), ""firstname"": ""Ada"", ""surname"": ""Lovelace"", ""job"": ""Programmer""})</code></pre>","<p>Use the native MongoDB ObjectId as a shorter alternative of UUID (see <a href=""https://www.mongodb.com/docs/manual/reference/method/ObjectId/"">here</a>):</p>
+
+<pre><code>db={
+  ""users"": [
+    {
+      ""_id"": ""3ca3913d1a647164c521c033"",
+      ""firstname"": ""John"",
+      ""surname"": ""Doe"",
+      ""job"": ""Farmer""
+    },
+    {
+      ""_id"": ""50a8da644a0d2e94f6e1e319"",
+      ""firstname"": ""Alan"",
+      ""surname"": ""Turing"",
+      ""job"": ""Postdoctoral assistant""
+    }
+  ]
+}</code></pre>
+
+<p>One can insert a new document into this collection as follows:</p>
+<pre><code>db.users.insert({""firstname"": ""Ada"", ""surname"": ""Lovelace"", ""job"": ""Programmer""})</code></pre>",,,,
+2022-06-14 09:46:40,2022-06-14 09:47:09,IP Address,31,29,False,2022-06-21 09:47:17,R_UrS6drna2N4Dlfz,anonymous,EN,Turkey,Developer,,1-2 years,Other,Mongoose,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 10:46:14,2022-06-14 10:50:08,IP Address,42,233,False,2022-06-21 10:50:14,R_XA4BElFifBqqXM5,anonymous,EN,Egypt,Developer,,5-7 years,JavaScript,MongoDB Node.js Driver,"Separating data accessed together,Use of relational collections,Relying on transactions,Database accesses spread across the system,Abusive use of indexes",Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,Never,Never,Never,Never,Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 18:15:04,2022-06-14 18:15:31,IP Address,4,27,False,2022-06-21 18:15:37,R_2YoesZG5hfRufNn,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-14 18:28:04,2022-06-14 18:28:21,IP Address,4,17,False,2022-06-21 18:28:22,R_2amzOPk89MBiira,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-21 19:12:20,2022-06-21 19:18:45,IP Address,100,384,True,2022-06-21 19:18:46,R_BLM5r4l3g1ZcjTj,anonymous,EN,Canada,Developer,,<1 year,"JavaScript,Python","MongoDB Node.js Driver,Mongoose","Storage of empty values,Human readable values,Too long document keys",Never,Never,Regularly - I see them as recurring problems in our projects.,Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,Sometimes - I observed them only in few projects and commits.,Never,Never,No – I would not refactor it,No – I would not refactor it,"Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it","Significantly – Yes, I would refactor it","Yes, it fixes the problem.",,"Depends on the application, I believe that if you are using noSQL database that you should stay away from using it relational as there is better databases out there that will handle relationships more efficiently. ",No,,"Yes, it fixes the problem.",,"No the suggested solution is what I have been tought and continue to use, We stay away from transactions if possible.",No,,,Separating data accessed together,"<p>Normalizing and splitting data into separate tables is natural in relational databases. However, MongoDB allows embedding documents to represent 1-1 or 1-N relationships. This allows better performances by avoiding the <code>$lookup</code> operator (like a join in SQL), which is slow and resource-intensive. Read more <a href=""https://www.mongodb.com/developer/article/schema-design-anti-pattern-separating-data/"" target=""_blank"">here</a>.</p>","<p>Suppose the following collections:</p>
+<pre><code>db={
+  ""countries"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Switzerland""
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Austria""
+    },
+    {
+      ""_id"": 3,
+      ""name"": ""Belgium""
+    }
+  ],
+  ""cities"": [
+    {
+      ""_id"": 1,
+      ""name"": ""Bruxelles"",
+      ""country"": 3
+    },
+    {
+      ""_id"": 2,
+      ""name"": ""Namur"",
+      ""country"": 3
+    },
+    {
+      ""_id"": 3,
+      ""name"": ""Zurich"",
+      ""country"": 1
+    },
+    {
+      ""_id"": 4,
+      ""name"": ""Vienna"",
+      ""country"": 2
+    }
+  ]
+}</code></pre>
+
+<p>To query the countries' cities, one needs to do a <code>$lookup</code> that would become inefficient with more data:</p>
+
+<pre><code>db.countries.aggregate([
+  {
+    ""$lookup"": {
+      ""from"": ""cities"",
+      ""localField"": ""_id"",
+      ""foreignField"": ""country"",
+      ""as"": ""country_cities""
+    }
+  }
+])</code></pre>","The cities could be stored together with the countries as follows:
+<pre><code>[
+  {
+    ""_id"": 1,
+    ""name"": ""Switzerland"",
+    ""cities"": [
+      {
+        ""_id"": 3,
+        ""name"": ""Zurich""
+      }
+    ]
+  },
+  {
+    ""_id"": 2,
+    ""name"": ""Austria""
+    ""cities"": [
+      {
+        ""_id"": 4,
+        ""name"": ""Vienna""
+      }
+    ]
+  },
+  {
+    ""_id"": 3,
+    ""name"": ""Belgium"",
+    ""cities"": [
+      {
+        ""_id"": 1,
+        ""name"": ""Bruxelles""
+      },
+      {
+        ""_id"": 2,
+        ""name"": ""Namur""
+      }
+    ]
+  }
+]</code></pre>",Relying on transactions,"<p>Transactions ensure data integrity in relational databases.
+MongoDB has transactions too, but relying on them is a bad design smell.
+Their usage is a sign of breaking up data between multiple collections, which is against the fundamental MongoDB principle:<i> data that is accessed together should be stored together</i>.
+Read more <a href=""https://www.mongodb.com/developer/article/3-things-to-know-switch-from-sql-mongodb/#sql-tread-carefully-transactions"" target=""_blank"">here</a>.</p>","<p>The following code snippet with a transaction indicates that users and their jobs are unnecessary broken to separate collections.</p>
+<pre><code>try {
+  await session.withTransaction(async () => {
+      const users = db.users;
+      const jobs = db.jobs;
+      const doc_id = await users.insertOne({""firstname"": ""Ada"", ""surname"": ""Lovelace""}, { session }).insertedId;
+      await jobs.insertOne({""user_id"": doc_id, ""entitled"": ""Programmer""}, { session });
+  });
+} finally {
+    await session.endSession();
+    await client.close();
+}</code></pre>","<p>The job collection should be embedded into the user:</p>
+
+<pre><code>db={
+  ""users"": [
+    {
+      ""_id"": 1,
+      ""firstname"": ""John"",
+      ""surname"": ""Doe"",
+      ""job"": ""Farmer""
+    },
+    {
+      ""_id"": 2,
+      ""firstname"": ""Alan"",
+      ""surname"": ""Turing"",
+      ""job"": ""Postdoctoral assistant""
+    },
+    {
+      ""_id"": 3,
+      ""firstname"": ""Charles"",
+      ""surname"": ""Babbage"",
+      ""job"": ""Professor""
+    }
+  ]
+}</pre></code>
+
+<p>Inserting a new user can be achieved with a single operation:</p>
+<pre><code>db.users.insert({""firstname"": ""Ada"", ""surname"": ""Lovelace"", ""job"": ""Programmer""})</code></pre>"
+2022-06-14 20:37:16,2022-06-14 20:59:25,IP Address,38,1328,False,2022-06-21 20:59:31,R_3Nyq3KYTeW1SPcx,anonymous,EN,United States of America,Architect,,3-4 years,"Java,JavaScript,Python,Other","MongoDB Java Driver,MongoDB Node.js Driver",Storage of empty values,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-16 05:15:36,2022-06-16 05:26:26,IP Address,38,650,False,,FS_xhmA7wsPc3OOHtv,anonymous,EN,Switzerland,Developer,,3-4 years,JavaScript,MongoDB Node.js Driver,"Storage of empty values,Too long document keys",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-16 05:22:18,2022-06-16 05:28:04,IP Address,58,346,False,,FS_D8dxa3UlhHtBTUd,anonymous,EN,Switzerland,Developer,,3-4 years,"Java,JavaScript","MongoDB Java Driver,MongoDB Node.js Driver,Mongoose","Use of relational collections,Relying on transactions,Too long attribute name,Too long document keys,Abusive use of indexes",Never,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Sometimes - I observed them only in few projects and commits.,Never,Sometimes - I observed them only in few projects and commits.,Regularly - I see them as recurring problems in our projects.,"Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it",No – I would not refactor it,"Somewhat – Yes, but I would not refactor it",No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,No – I would not refactor it,"Somewhat – Yes, but I would not refactor it","Somewhat – Yes, but I would not refactor it","Significantly – Yes, I would refactor it","Yes, but it's a partial fix to the problem.",,,,,,,,,,,Abusive use of indexes,"<p>Indexes in MongoDB are powerful and necessary to improve query performance, but their maintenance requires resources. Too many unnecessary indexes can take too much storage and increase CPU usage.
+
+Read more <a href=""https://www.mongodb.com/developer/article/schema-design-anti-pattern-unnecessary-indexes/"" target=""_blank"">here</a>.</p>","<p>Suppose a collection with several attributes where each attribute has an index; however, the collection is searched through only a few attributes.</p>",<p>Remove the indices of the attributes which are not used to search for documents in the collection.</p>,,,,
+2022-06-16 05:50:52,2022-06-16 05:50:55,IP Address,4,3,False,,FS_2qt6kChsG0bedxb,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-16 06:12:00,2022-06-16 06:24:51,IP Address,31,770,False,,FS_1ikSxGLC86xVgXK,anonymous,EN,Belgium,Other,Researcher,1-2 years,"Java,JavaScript","MongoDB Java Driver,MongoDB Node.js Driver",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-16 10:11:23,2022-06-16 10:11:29,IP Address,4,5,False,,FS_vuw2c5TEFKVcR45,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-17 05:58:08,2022-06-17 06:01:12,IP Address,31,184,False,,FS_dmporZfixoN1Ket,anonymous,EN,Switzerland,Other,PhD Student,5-7 years,"JavaScript,Python",PyMongo,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-18 10:05:51,2022-06-18 10:06:09,IP Address,4,17,False,,FS_1NlfcrZj0Lm5bSv,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-21 21:41:49,2022-06-21 21:43:32,IP Address,38,102,False,,FS_2uVw7QdCsaTGy55,anonymous,EN,United States of America,Developer,,1-2 years,"C/C++,Java,JavaScript,Python","MongoDB Java Driver,MongoDB Node.js Driver,Mongoose,Other",Abusive use of indexes,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2022-06-22 10:27:36,2022-06-22 10:27:52,IP Address,4,15,False,,FS_d0DcDoruOEXxRzb,anonymous,EN,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
